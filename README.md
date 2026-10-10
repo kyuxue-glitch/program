@@ -1,4 +1,3 @@
-[Uploading README.md…]()
 # 星之轨迹 · Hoshino Portal
 
 一个可以直接部署到 **Cloudflare Pages** 的纯静态二次元个人空间。
