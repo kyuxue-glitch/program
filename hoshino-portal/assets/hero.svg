@@ -1,0 +1,208 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" role="img" aria-label="星海夜空下的城市与海面">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0.25" y2="1">
+      <stop offset="0" stop-color="#05081a"/>
+      <stop offset="0.32" stop-color="#141a44"/>
+      <stop offset="0.58" stop-color="#3b2f68"/>
+      <stop offset="0.78" stop-color="#7d4a7c"/>
+      <stop offset="1" stop-color="#c9768a"/>
+    </linearGradient>
+    <linearGradient id="seaG" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#8f6a86"/>
+      <stop offset="0.18" stop-color="#3f3566"/>
+      <stop offset="1" stop-color="#0a0d24"/>
+    </linearGradient>
+    <radialGradient id="moonGlow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#fff6e2" stop-opacity="0.95"/>
+      <stop offset="0.28" stop-color="#ffe6bb" stop-opacity="0.35"/>
+      <stop offset="0.62" stop-color="#c9a6ff" stop-opacity="0.12"/>
+      <stop offset="1" stop-color="#7b6bff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="moonBall" cx="0.36" cy="0.32" r="0.8">
+      <stop offset="0" stop-color="#fffdf6"/>
+      <stop offset="0.62" stop-color="#fdf1d8"/>
+      <stop offset="1" stop-color="#e8d4bd"/>
+    </radialGradient>
+    <linearGradient id="cityFar" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3d3566"/>
+      <stop offset="1" stop-color="#231f47"/>
+    </linearGradient>
+    <linearGradient id="cityNear" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#211d40"/>
+      <stop offset="1" stop-color="#120f2b"/>
+    </linearGradient>
+    <linearGradient id="hillG" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#161430"/>
+      <stop offset="1" stop-color="#080a1c"/>
+    </linearGradient>
+    <linearGradient id="shootG" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset="0.6" stop-color="#cfe9ff" stop-opacity="0.85"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <pattern id="starP" width="180" height="180" patternUnits="userSpaceOnUse">
+      <circle cx="14" cy="22" r="1.5" fill="#fff" opacity=".75"/>
+      <circle cx="66" cy="58" r="1" fill="#dfe9ff" opacity=".55"/>
+      <circle cx="118" cy="26" r="1.9" fill="#fff" opacity=".8"/>
+      <circle cx="150" cy="92" r="1.1" fill="#ffe6f2" opacity=".6"/>
+      <circle cx="40" cy="120" r="1.3" fill="#fff" opacity=".7"/>
+      <circle cx="96" cy="146" r="0.9" fill="#cfe0ff" opacity=".5"/>
+      <circle cx="168" cy="160" r="1.6" fill="#fff" opacity=".65"/>
+      <circle cx="6" cy="86" r="0.8" fill="#fff" opacity=".45"/>
+    </pattern>
+    <pattern id="winP" width="14" height="17" patternUnits="userSpaceOnUse">
+      <rect x="2.5" y="3" width="4" height="5.5" rx="0.8" fill="#ffe08a" opacity="0.62"/>
+    </pattern>
+    <pattern id="winP2" width="19" height="21" patternUnits="userSpaceOnUse">
+      <rect x="4" y="4" width="5" height="7" rx="1" fill="#9fe4ff" opacity="0.5"/>
+    </pattern>
+    <filter id="blurXL" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="60"/></filter>
+    <filter id="blurL" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="26"/></filter>
+    <filter id="blurM" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="10"/></filter>
+    <filter id="blurS" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="3.4"/></filter>
+    <filter id="glowStar" x="-200%" y="-200%" width="500%" height="500%"><feGaussianBlur stdDeviation="2.6"/></filter>
+  </defs>
+
+  <!-- 夜空 -->
+  <rect width="1600" height="900" fill="url(#sky)"/>
+
+  <!-- 星云 -->
+  <g filter="url(#blurXL)" opacity="0.55">
+    <ellipse cx="330" cy="230" rx="330" ry="150" fill="#5b46c8" opacity="0.55"/>
+    <ellipse cx="880" cy="130" rx="300" ry="120" fill="#2f6bd8" opacity="0.4"/>
+    <ellipse cx="1370" cy="330" rx="330" ry="170" fill="#b45bb0" opacity="0.38"/>
+    <ellipse cx="640" cy="470" rx="520" ry="140" fill="#8b5cd6" opacity="0.22"/>
+  </g>
+
+  <!-- 星野 -->
+  <rect width="1600" height="900" fill="url(#starP)" opacity="0.9"/>
+  <rect x="-40" y="-30" width="1720" height="960" fill="url(#starP)" opacity="0.5" transform="scale(1.6) translate(-160 -120)"/>
+  <g filter="url(#glowStar)" opacity="0.85">
+    <circle cx="238" cy="132" r="2.6" fill="#fff"/>
+    <circle cx="612" cy="88" r="2" fill="#dff0ff"/>
+    <circle cx="1006" cy="196" r="2.4" fill="#fff"/>
+    <circle cx="1246" cy="96" r="1.8" fill="#ffe9f6"/>
+    <circle cx="1462" cy="222" r="2.2" fill="#fff"/>
+    <circle cx="432" cy="330" r="1.6" fill="#e6f0ff"/>
+    <circle cx="1508" cy="90" r="1.7" fill="#fff"/>
+    <circle cx="92" cy="316" r="1.9" fill="#fff"/>
+  </g>
+
+  <!-- 流星 -->
+  <g opacity="0.9">
+    <path d="M1180 74 L986 268" stroke="url(#shootG)" stroke-width="2.4" stroke-linecap="round" fill="none"/>
+    <path d="M700 40 L604 136" stroke="url(#shootG)" stroke-width="1.6" stroke-linecap="round" fill="none" opacity="0.7"/>
+  </g>
+
+  <!-- 月亮 -->
+  <circle cx="1218" cy="252" r="250" fill="url(#moonGlow)"/>
+  <circle cx="1218" cy="252" r="86" fill="url(#moonBall)"/>
+  <g opacity="0.14" fill="#b39a86">
+    <circle cx="1196" cy="232" r="17"/>
+    <circle cx="1244" cy="272" r="12"/>
+    <circle cx="1214" cy="292" r="8"/>
+  </g>
+
+  <!-- 云层 -->
+  <g filter="url(#blurL)" opacity="0.5">
+    <ellipse cx="330" cy="386" rx="300" ry="34" fill="#f0c7d8" opacity="0.5"/>
+    <ellipse cx="1180" cy="430" rx="360" ry="30" fill="#e9bcd6" opacity="0.42"/>
+    <ellipse cx="820" cy="352" rx="240" ry="22" fill="#ffd9e6" opacity="0.3"/>
+  </g>
+
+  <!-- 远山 -->
+  <path d="M0 520 L150 452 L280 508 L420 430 L560 500 L700 452 L860 512 L1010 448 L1160 506 L1320 458 L1460 508 L1600 462 L1600 600 L0 600 Z" fill="#2a2450" opacity="0.9"/>
+
+  <!-- 远景城市 -->
+  <g fill="url(#cityFar)" opacity="0.95">
+    <rect x="20" y="470" width="70" height="130"/><rect x="104" y="500" width="52" height="100"/>
+    <rect x="170" y="440" width="86" height="160"/><rect x="272" y="486" width="60" height="114"/>
+    <rect x="348" y="456" width="74" height="144"/><rect x="440" y="498" width="54" height="102"/>
+    <rect x="512" y="430" width="92" height="170"/><rect x="620" y="480" width="58" height="120"/>
+    <rect x="694" y="452" width="80" height="148"/><rect x="790" y="496" width="56" height="104"/>
+    <rect x="862" y="436" width="88" height="164"/><rect x="966" y="488" width="60" height="112"/>
+    <rect x="1042" y="460" width="76" height="140"/><rect x="1134" y="500" width="52" height="100"/>
+    <rect x="1202" y="444" width="84" height="156"/><rect x="1302" y="490" width="58" height="110"/>
+    <rect x="1376" y="466" width="72" height="134"/><rect x="1464" y="502" width="54" height="98"/>
+    <rect x="1534" y="452" width="66" height="148"/>
+  </g>
+  <g opacity="0.75">
+    <rect x="20" y="470" width="70" height="130" fill="url(#winP2)"/>
+    <rect x="170" y="440" width="86" height="160" fill="url(#winP)"/>
+    <rect x="348" y="456" width="74" height="144" fill="url(#winP2)"/>
+    <rect x="512" y="430" width="92" height="170" fill="url(#winP)"/>
+    <rect x="694" y="452" width="80" height="148" fill="url(#winP2)"/>
+    <rect x="862" y="436" width="88" height="164" fill="url(#winP)"/>
+    <rect x="1042" y="460" width="76" height="140" fill="url(#winP2)"/>
+    <rect x="1202" y="444" width="84" height="156" fill="url(#winP)"/>
+    <rect x="1376" y="466" width="72" height="134" fill="url(#winP2)"/>
+    <rect x="1534" y="452" width="66" height="148" fill="url(#winP)"/>
+  </g>
+
+  <!-- 近景城市 -->
+  <g fill="url(#cityNear)">
+    <rect x="-10" y="540" width="120" height="140"/><rect x="126" y="566" width="90" height="114"/>
+    <rect x="232" y="524" width="130" height="156"/><rect x="378" y="560" width="96" height="120"/>
+    <rect x="490" y="536" width="140" height="144"/><rect x="646" y="568" width="104" height="112"/>
+    <rect x="766" y="530" width="150" height="150"/><rect x="932" y="562" width="98" height="118"/>
+    <rect x="1046" y="538" width="132" height="142"/><rect x="1194" y="566" width="92" height="114"/>
+    <rect x="1302" y="532" width="140" height="148"/><rect x="1458" y="560" width="152" height="120"/>
+  </g>
+  <g opacity="0.55">
+    <rect x="232" y="524" width="130" height="156" fill="url(#winP)"/>
+    <rect x="490" y="536" width="140" height="144" fill="url(#winP2)"/>
+    <rect x="766" y="530" width="150" height="150" fill="url(#winP)"/>
+    <rect x="1046" y="538" width="132" height="142" fill="url(#winP2)"/>
+    <rect x="1302" y="532" width="140" height="148" fill="url(#winP)"/>
+  </g>
+
+  <!-- 海面 -->
+  <rect x="0" y="640" width="1600" height="260" fill="url(#seaG)"/>
+  <g filter="url(#blurM)" opacity="0.6">
+    <ellipse cx="1218" cy="676" rx="70" ry="9" fill="#ffeccf" opacity="0.8"/>
+    <ellipse cx="1218" cy="710" rx="118" ry="7" fill="#ffd9ea" opacity="0.5"/>
+    <ellipse cx="1218" cy="752" rx="168" ry="6" fill="#ffc9e2" opacity="0.35"/>
+    <ellipse cx="1218" cy="800" rx="220" ry="5" fill="#e7b6ff" opacity="0.22"/>
+  </g>
+  <g stroke="#ffd9e6" stroke-linecap="round" opacity="0.28">
+    <path d="M120 700h140M340 736h180M620 692h120M900 748h190M1420 704h130M240 806h220M980 812h240"/>
+  </g>
+  <g stroke="#bcd8ff" stroke-linecap="round" opacity="0.18">
+    <path d="M60 662h120M400 656h150M760 668h120M1100 656h140M1340 672h160M180 862h260M700 858h300M1240 866h220"/>
+  </g>
+
+  <!-- 前景山丘 -->
+  <path d="M0 900 L0 742 C 190 700 320 760 470 748 C 620 736 700 690 860 700 C 1010 710 1120 668 1280 692 C 1420 712 1520 748 1600 736 L1600 900 Z" fill="url(#hillG)"/>
+
+  <!-- 鸟居剪影 -->
+  <g fill="#120f28" opacity="0.96" transform="translate(1128 604) scale(0.92)">
+    <path d="M-14 0h196l-10-14H-4z"/>
+    <rect x="18" y="20" width="132" height="10"/>
+    <rect x="34" y="14" width="14" height="184"/>
+    <rect x="120" y="14" width="14" height="184"/>
+    <rect x="26" y="30" width="116" height="8"/>
+  </g>
+
+  <!-- 树影 -->
+  <g fill="#0d0b20" opacity="0.95">
+    <path d="M180 776c-26-6-40-28-46-48 14 12 30 16 44 12-16-14-22-40-18-60 10 20 26 32 44 34-8-22-2-48 12-62 2 24 14 42 30 50-2-24 8-46 26-56-6 26 4 50 22 62 12 8 14 24 4 32z"/>
+    <rect x="206" y="752" width="10" height="70"/>
+    <path d="M300 700c-18-8-26-30-26-48 12 14 26 20 40 18-12-12-14-34-8-52 8 16 22 26 36 26-6-18 0-40 12-50 0 20 8 36 22 42 0-20 8-38 22-44-6 22 2 42 16 52 10 8 10 22 0 28z"/>
+    <rect x="322" y="690" width="9" height="120"/>
+  </g>
+
+  <!-- 萤火 / 花瓣 -->
+  <g opacity="0.9">
+    <circle cx="422" cy="612" r="2.6" fill="#ffe9a8" opacity="0.9"/>
+    <circle cx="1520" cy="596" r="2.2" fill="#ffe9a8" opacity="0.8"/>
+    <circle cx="962" cy="640" r="1.8" fill="#dff3ff" opacity="0.8"/>
+    <circle cx="132" cy="560" r="2" fill="#ffd9ea" opacity="0.75"/>
+    <ellipse cx="700" cy="560" rx="4.6" ry="2.6" fill="#ffc4dc" opacity="0.7" transform="rotate(-24 700 560)"/>
+    <ellipse cx="880" cy="520" rx="4.2" ry="2.4" fill="#ffd0e6" opacity="0.6" transform="rotate(18 880 520)"/>
+    <ellipse cx="1420" cy="540" rx="4" ry="2.3" fill="#ffc4dc" opacity="0.55" transform="rotate(36 1420 540)"/>
+    <ellipse cx="260" cy="500" rx="3.6" ry="2" fill="#ffdbec" opacity="0.5" transform="rotate(-40 260 500)"/>
+  </g>
+
+  <!-- 底部氛围光 -->
+  <rect x="0" y="600" width="1600" height="300" fill="url(#moonGlow)" opacity="0.12"/>
+</svg>

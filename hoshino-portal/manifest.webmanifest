@@ -1,0 +1,14 @@
+{
+  "name": "星之轨迹 · Hoshino Portal",
+  "short_name": "星之轨迹",
+  "description": "一个属于你的二次元小宇宙：文章、说说、照片、音乐与心情。",
+  "lang": "zh-CN",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0b1026",
+  "theme_color": "#0b1026",
+  "icons": [
+    { "src": "/assets/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}

@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>404 · 星之轨迹</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <style>
+    :root { color-scheme: dark; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      font-family: "Noto Sans SC", system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+      color: #eef1ff;
+      background:
+        radial-gradient(900px 600px at 78% -10%, rgba(139,123,247,.38), transparent 62%),
+        radial-gradient(800px 520px at 8% 10%, rgba(111,216,255,.26), transparent 60%),
+        radial-gradient(900px 700px at 50% 110%, rgba(255,158,203,.22), transparent 66%),
+        linear-gradient(180deg, #070a1c, #0d1330 50%, #070a1c);
+      overflow: hidden;
+    }
+    body::after {
+      content: "";
+      position: fixed;
+      inset: -40%;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Ccircle cx='20' cy='30' r='1.2' fill='%23ffffff' opacity='.7'/%3E%3Ccircle cx='90' cy='60' r='.9' fill='%23cfe0ff' opacity='.5'/%3E%3Ccircle cx='120' cy='20' r='1.5' fill='%23ffffff' opacity='.65'/%3E%3Ccircle cx='50' cy='110' r='1' fill='%23ffd9ec' opacity='.5'/%3E%3C/svg%3E");
+      opacity: .7;
+      animation: drift 40s linear infinite;
+      pointer-events: none;
+    }
+    @keyframes drift { to { transform: translate3d(-140px, -140px, 0); } }
+    .card {
+      position: relative;
+      z-index: 1;
+      max-width: 520px;
+      padding: 40px 36px;
+      text-align: center;
+      border-radius: 28px;
+      background: rgba(19, 25, 57, .66);
+      border: 1px solid rgba(146, 160, 255, .2);
+      box-shadow: 0 26px 70px rgba(3, 5, 20, .5);
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+    }
+    .mark {
+      width: 66px; height: 66px; margin: 0 auto 18px;
+      display: grid; place-items: center;
+      border-radius: 22px;
+      font-size: 30px;
+      background: linear-gradient(135deg, #6fd8ff, #8b7bf7 55%, #ff9ecb);
+      box-shadow: 0 16px 40px rgba(139, 123, 247, .45);
+      color: #0b1026;
+    }
+    h1 {
+      margin: 0 0 8px;
+      font-size: clamp(26px, 6vw, 40px);
+      letter-spacing: .04em;
+      background: linear-gradient(100deg, #9fe6ff, #c0b4ff 50%, #ffc0dd);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    p { margin: 0 0 6px; color: #aab3de; font-size: 14px; line-height: 1.8; }
+    .actions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-top: 24px; }
+    a.btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      height: 42px; padding: 0 22px; border-radius: 12px;
+      font-size: 13.5px; text-decoration: none;
+      transition: transform .2s ease;
+    }
+    .primary { color: #fff; background: linear-gradient(120deg, #8b7bf7, #6fd8ff); box-shadow: 0 12px 28px rgba(139,123,247,.35); }
+    .ghost { color: #cdd6ff; border: 1px solid rgba(146,160,255,.28); }
+    a.btn:hover { transform: translateY(-2px); }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <div class="mark">✦</div>
+    <h1>404 · 迷路啦</h1>
+    <p>这个页面没有在星之轨迹上留下脚印。</p>
+    <p>也许它被移走了，也许只是拼错了地址。</p>
+    <div class="actions">
+      <a class="btn primary" href="./">返回首页 ✦</a>
+      <a class="btn ghost" href="./#/search">搜索星球</a>
+    </div>
+  </main>
+</body>
+</html>

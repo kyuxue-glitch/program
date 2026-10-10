@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark" data-accent="aurora">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0b1026" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#f4f5ff" media="(prefers-color-scheme: light)" />
+  <meta name="color-scheme" content="dark light" />
+
+  <title>星之轨迹 · 一个属于你的二次元小宇宙</title>
+  <meta name="description" content="星之轨迹 —— 记录文章、说说、照片、音乐与心情的个人空间。纯静态、可离线、数据保存在你自己的浏览器里。" />
+  <meta name="keywords" content="个人空间, 二次元, 博客, 星之轨迹, Hoshino Portal, 静态站" />
+  <meta name="author" content="星之轨迹" />
+  <link rel="canonical" href="./" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="星之轨迹 · 一个属于你的二次元小宇宙" />
+  <meta property="og:description" content="写下想说的话，收藏喜欢的人与故事，慢慢拼出只属于你的星之轨迹。" />
+  <meta property="og:image" content="assets/hero.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="apple-touch-icon" href="assets/favicon.svg" />
+  <link rel="manifest" href="manifest.webmanifest" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=ZCOOL+KuaiLe&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=2.0.4" />
+
+  <script src="js/art.js?v=2.0.4" defer></script>
+  <script src="js/store.js?v=2.0.4" defer></script>
+  <script src="js/particles.js?v=2.0.4" defer></script>
+  <script src="js/mousefx.js?v=2.0.4" defer></script>
+  <script src="js/player.js?v=2.0.4" defer></script>
+  <script src="js/views.js?v=2.0.4" defer></script>
+  <script src="js/assistant.js?v=2.0.4" defer></script>
+  <script src="app.js?v=2.0.4" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#view">跳到主要内容</a>
+
+  <noscript>
+    <div style="margin:20px;padding:20px;border-radius:18px;background:rgba(139,123,247,.16);border:1px solid rgba(146,160,255,.3);line-height:1.8">
+      <b>星之轨迹需要 JavaScript 才能运行 ✦</b><br />
+      本站的文章、说说、照片与音乐都由浏览器实时生成，请在设置中开启 JavaScript 后刷新页面。
+    </div>
+  </noscript>
+
+  <!-- ══════════ 序章：星海 ══════════ -->
+  <div class="prologue" id="prologue" role="dialog" aria-modal="true" aria-labelledby="prologueTitle">
+    <video class="prologue__video" id="prologueVideo" src="assets/intro.mp4" poster="assets/hero.svg"
+      autoplay muted loop playsinline preload="auto" disablepictureinpicture aria-hidden="true"></video>
+    <div class="prologue__scrim" aria-hidden="true"></div>
+    <canvas class="prologue__canvas" id="prologueCanvas" aria-hidden="true"></canvas>
+    <div class="prologue__glow" aria-hidden="true"></div>
+    <div class="prologue__frame" aria-hidden="true">
+      <span>星 の 軌 跡</span>
+      <span>HOSHINO · PORTAL</span>
+    </div>
+    <div class="prologue__inner">
+      <p class="prologue__eyebrow">MAKE A WISH <i>/</i> 星 海 序 章</p>
+      <h1 id="prologueTitle">在星海深处<span>与你重逢</span></h1>
+      <p class="prologue__poem">把未说完的话，寄往群星之间。</p>
+      <button class="prologue__enter" id="prologueEnter" type="button">
+        <b aria-hidden="true">✧</b> 进入星海 <b aria-hidden="true">↗</b>
+      </button>
+      <p class="prologue__hint">轻触星光 · 开启此间物语</p>
+    </div>
+    <p class="prologue__status" id="prologueStatus">星海已在此等候</p>
+    <button class="prologue__skip" id="prologueSkip" type="button">跳过序章 ↗</button>
+  </div>
+
+  <!-- ══════════ 背景特效层 ══════════ -->
+  <div class="fx" aria-hidden="true">
+    <div class="fx__base"></div>
+    <div class="fx__aurora"><i class="a1"></i><i class="a2"></i><i class="a3"></i></div>
+    <canvas class="fx__layer" id="fxStars"></canvas>
+    <canvas class="fx__layer" id="fxPetals"></canvas>
+    <div class="fx__grid"></div>
+    <div class="fx__grain"></div>
+    <div class="fx__vignette"></div>
+  </div>
+
+  <!-- ══════════ 侧边栏 ══════════ -->
+  <aside class="sidebar" id="sidebar" aria-label="主导航">
+    <a class="brand" href="#/home" data-nav-brand>
+      <span class="brand__mark" aria-hidden="true">
+        <svg viewBox="0 0 48 48"><use href="#i-star"></use></svg>
+      </span>
+      <span class="brand__text">
+        <b>星之轨迹</b>
+        <i>HOSHINO PORTAL</i>
+      </span>
+    </a>
+
+    <button class="sidebar__search" id="sidebarSearch" type="button">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-search"></use></svg>
+      <span>搜索星球…</span>
+      <kbd>Ctrl</kbd><kbd>K</kbd>
+    </button>
+
+    <nav class="sidebar__nav" id="sidebarNav"></nav>
+
+    <div class="sidebar__foot">
+      <div class="storage" title="浏览器本地存储使用量">
+        <div class="storage__head"><span>星球存档</span><b id="storageText">—</b></div>
+        <div class="storage__bar"><i id="storageBar"></i></div>
+      </div>
+      <p class="sidebar__quote">愿你在这片星空下，<br />找到属于自己的光。</p>
+    </div>
+  </aside>
+  <div class="scrim" id="scrim" hidden></div>
+
+  <!-- ══════════ 主体 ══════════ -->
+  <div class="shell">
+    <header class="topbar">
+      <button class="icon-btn topbar__menu" id="menuBtn" type="button" aria-label="打开导航">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-menu"></use></svg>
+      </button>
+      <nav class="crumbs" id="crumbs" aria-label="面包屑"><span>首页</span></nav>
+
+      <div class="topbar__clock" id="topbarClock">
+        <b>--:--:--</b><i>—</i>
+      </div>
+
+      <div class="topbar__actions">
+        <button class="icon-btn" id="searchBtn" type="button" aria-label="搜索" title="搜索 (Ctrl+K)">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-search"></use></svg>
+        </button>
+        <button class="icon-btn" id="notifyBtn" type="button" aria-label="通知" title="通知中心">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-bell"></use></svg>
+          <span class="dot" id="notifyDot"></span>
+        </button>
+        <button class="icon-btn" id="fxBtn" type="button" aria-label="背景特效开关" title="背景特效">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-sparkle"></use></svg>
+        </button>
+        <button class="icon-btn" id="themeBtn" type="button" aria-label="切换主题" title="切换主题">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-moon"></use></svg>
+        </button>
+        <button class="user-chip" id="userBtn" type="button" aria-haspopup="menu">
+          <span class="user-chip__avatar" id="userAvatar">旅</span>
+          <span class="user-chip__text">
+            <b id="userName">游客</b>
+            <i id="userRole">未登录</i>
+          </span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chevron"></use></svg>
+        </button>
+      </div>
+    </header>
+
+    <main class="view" id="view" tabindex="-1"></main>
+
+    <footer class="footer">
+      <div>
+        <b>星之轨迹</b>
+        <span>· 纯静态 · 数据只存在你的浏览器里</span>
+      </div>
+      <div class="footer__links">
+        <button data-route="#/commands" type="button">指令大全</button>
+        <button data-route="#/settings" type="button">数据管理</button>
+        <a href="https://pages.cloudflare.com/" target="_blank" rel="noreferrer noopener">Cloudflare Pages ↗</a>
+      </div>
+      <div class="footer__meta"><span id="footerClock"></span></div>
+    </footer>
+  </div>
+
+  <!-- ══════════ 音乐坞 ══════════ -->
+  <section class="dock" id="dock" aria-label="音乐播放器">
+    <button class="dock__toggle" id="dockToggle" type="button" aria-label="展开音乐播放器">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chevron"></use></svg>
+    </button>
+    <div class="dock__body">
+      <div class="dock__art" id="dockArt" aria-hidden="true"><canvas id="dockVisual"></canvas></div>
+      <div class="dock__meta">
+        <b id="dockTitle">星屑のワルツ</b>
+        <span id="dockArtist">星之轨迹 · 原创生成音轨</span>
+        <div class="dock__seek" id="dockSeek"><i id="dockProgress"></i></div>
+      </div>
+      <div class="dock__ctrl">
+        <button id="dockPrev" type="button" aria-label="上一首"><svg viewBox="0 0 24 24"><use href="#i-prev"></use></svg></button>
+        <button class="dock__play" id="dockPlay" type="button" aria-label="播放"><svg viewBox="0 0 24 24"><use href="#i-play"></use></svg></button>
+        <button id="dockNext" type="button" aria-label="下一首"><svg viewBox="0 0 24 24"><use href="#i-next"></use></svg></button>
+      </div>
+      <div class="dock__vol">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-volume"></use></svg>
+        <input type="range" id="dockVol" min="0" max="100" value="45" aria-label="音量" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ 陪伴角色 ══════════ -->
+  <div class="buddy" id="buddy">
+    <button class="buddy__bubble" id="buddyBubble" type="button">
+      <span id="buddyLine">晚上好，要去星球上逛逛吗？</span>
+      <i>点我聊聊 ✦</i>
+    </button>
+    <div class="buddy__stage" id="buddyBody" role="button" tabindex="0" aria-label="和星野聊天">
+      <div class="mascot" id="mascotStage" aria-hidden="true">
+        <svg class="buddy__svg" viewBox="0 0 120 132" aria-hidden="true">
+          <defs>
+            <linearGradient id="buddyHair" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#cfe4ff" /><stop offset="1" stop-color="#8fb4ff" />
+            </linearGradient>
+            <linearGradient id="buddyCloth" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#7f8cff" /><stop offset="1" stop-color="#c07bff" />
+            </linearGradient>
+          </defs>
+          <path class="buddy__tail" d="M92 96c14 2 20-8 16-18-3-8-12-10-16-4" />
+          <path fill="url(#buddyCloth)" d="M32 132c0-16 12-26 28-26s28 10 28 26z" />
+          <circle fill="#ffe9d9" cx="60" cy="70" r="30" />
+          <path fill="url(#buddyHair)" d="M30 68c0-19 13-32 30-32s30 13 30 32c0-6-6-9-12-12-8-4-16-6-24-3-9 3-15 8-18 15-2 4-6 3-6 0z" />
+          <path class="buddy__ear" d="M34 42c-2-12 4-20 8-22 4 6 5 12 4 20z" />
+          <path class="buddy__ear" d="M86 42c2-12-4-20-8-22-4 6-5 12-4 20z" />
+          <ellipse class="buddy__eye" cx="49" cy="72" rx="4.2" ry="5.4" />
+          <ellipse class="buddy__eye" cx="71" cy="72" rx="4.2" ry="5.4" />
+          <circle class="buddy__blush" cx="40" cy="80" r="4.5" />
+          <circle class="buddy__blush" cx="80" cy="80" r="4.5" />
+          <path class="buddy__mouth" d="M56 82c2 3 6 3 8 0" />
+          <path class="buddy__star" d="M60 100l2.6 6 6.4.5-4.9 4.1 1.5 6.3-5.6-3.4-5.6 3.4 1.5-6.3-4.9-4.1 6.4-.5z" />
+        </svg>
+      </div>
+      <span class="buddy__ring" aria-hidden="true"></span>
+    </div>
+    <div class="buddy__actions">
+      <button type="button" data-act="go" data-route="#/assistant">聊天</button>
+      <button type="button" data-act="music-toggle">音乐</button>
+      <button type="button" data-act="go" data-route="#/games">小游戏</button>
+      <button type="button" data-act="buddy-hide" title="收起角色">收起</button>
+    </div>
+  </div>
+
+  <!-- ══════════ 移动端底部导航 ══════════ -->
+  <nav class="tabbar" id="tabbar" aria-label="快捷导航"></nav>
+
+  <!-- ══════════ 命令面板 ══════════ -->
+  <div class="palette" id="palette" role="dialog" aria-modal="true" aria-label="站内搜索" hidden>
+    <div class="palette__box">
+      <div class="palette__input">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-search"></use></svg>
+        <input id="paletteInput" type="text" placeholder="搜索文章、说说、照片、项目，或输入 / 使用指令" autocomplete="off" />
+        <kbd>Esc</kbd>
+      </div>
+      <div class="palette__list" id="paletteList"></div>
+      <div class="palette__foot">
+        <span><kbd>↑</kbd><kbd>↓</kbd> 选择</span>
+        <span><kbd>Enter</kbd> 打开</span>
+        <span id="paletteHint">支持 /help /music /theme 等指令</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════ 模态框 ══════════ -->
+  <div class="modal" id="modal" hidden>
+    <div class="modal__scrim" data-close-modal></div>
+    <div class="modal__card" id="modalCard" role="dialog" aria-modal="true">
+      <button class="modal__close" id="modalClose" type="button" aria-label="关闭">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-close"></use></svg>
+      </button>
+      <div class="modal__body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <!-- ══════════ 轻提示 ══════════ -->
+  <div class="toasts" id="toasts" aria-live="polite"></div>
+
+  <audio id="audio" preload="none" crossorigin="anonymous"></audio>
+
+
+  <!-- ══════════ 图标精灵 ══════════ -->
+  <svg class="sprite" aria-hidden="true" focusable="false">
+    <symbol id="i-star" viewBox="0 0 48 48"><path d="M24 4l5.6 12.9L43 19.2l-9.6 9.2 2.4 13.6L24 35.5l-11.8 6.5 2.4-13.6L5 19.2l13.4-2.3z"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15V10a6 6 0 10-12 0v5l-1.6 2.6h15.2z"/><path d="M10 19a2 2 0 004 0"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M20 14.5A8.5 8.5 0 019.5 4a8.6 8.6 0 1010.5 10.5z"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.6v2.2M12 19.2v2.2M2.6 12h2.2M19.2 12h2.2M5.4 5.4l1.6 1.6M17 17l1.6 1.6M18.6 5.4L17 7M7 17l-1.6 1.6"/></symbol>
+    <symbol id="i-sparkle" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l1.7 5.6L19.5 9l-5 3 1.2 6-3.7-3.6L8.3 18l1.2-6-5-3 5.8-1.4z"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 10l4 4 4-4"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5l11 6.5-11 6.5z"/></symbol>
+    <symbol id="i-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="7.5" y="5.5" width="3.4" height="13" rx="1.2"/><rect x="13.1" y="5.5" width="3.4" height="13" rx="1.2"/></symbol>
+    <symbol id="i-prev" viewBox="0 0 24 24" fill="currentColor"><path d="M7 6h2.2v12H7zM18 6l-8 6 8 6z"/></symbol>
+    <symbol id="i-next" viewBox="0 0 24 24" fill="currentColor"><path d="M14.8 6H17v12h-2.2zM6 6l8 6-8 6z"/></symbol>
+    <symbol id="i-volume" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M5 10v4h3l4 3.5v-11L8 10z"/><path d="M15.5 9.5a4 4 0 010 5M18 7a7.5 7.5 0 010 10"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M12 20s-7-4.3-7-9.3A4 4 0 0112 7.6 4 4 0 0119 10.7c0 5-7 9.3-7 9.3z"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M2.5 12S6 6.5 12 6.5 21.5 12 21.5 12 18 17.5 12 17.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="2.6"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M4.5 7h15M9.5 7V5h5v2M7 7l1 12h8l1-12"/></symbol>
+    <symbol id="i-edit" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4l10-10-4-4L4 16z"/><path d="M14 6l4 4"/></symbol>
+    <symbol id="i-drag" viewBox="0 0 24 24" fill="currentColor"><circle cx="9" cy="6" r="1.4"/><circle cx="15" cy="6" r="1.4"/><circle cx="9" cy="12" r="1.4"/><circle cx="15" cy="12" r="1.4"/><circle cx="9" cy="18" r="1.4"/><circle cx="15" cy="18" r="1.4"/></symbol>
+    <symbol id="i-link" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M10 14a4 4 0 005.7 0l3-3a4 4 0 10-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 00-5.7 0l-3 3a4 4 0 105.7 5.7l1-1"/></symbol>
+  </svg>
+
+</body>
+</html>
